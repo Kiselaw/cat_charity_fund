@@ -50,8 +50,8 @@ async def check_charity_project_before_edit(
             detail='Закрытый проект нельзя редактировать!'
         )
     if (
-        obj_in.full_amount
-        and charity_project.invested_amount > obj_in.full_amount
+        obj_in.full_amount and
+        charity_project.invested_amount > obj_in.full_amount
     ):
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST,

@@ -1,5 +1,4 @@
 from operator import not_
-from typing import Optional
 
 from sqlalchemy import not_, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -25,7 +24,7 @@ class CRUDDonation(CRUDBase):
         not_invested_donations = await session.execute(
             select(Donation).where(
                 not_(Donation.fully_invested)
-                ).order_by(Donation.create_date)
+            ).order_by(Donation.create_date)
         )
         not_invested_donations = not_invested_donations.scalars().all()
         return not_invested_donations

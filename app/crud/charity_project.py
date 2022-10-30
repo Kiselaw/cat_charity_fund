@@ -26,7 +26,7 @@ class CRUDCharityProject(CRUDBase):
         opened_charity_projects = await session.execute(
             select(CharityProject).where(
                 not_(CharityProject.fully_invested)
-                ).order_by(CharityProject.create_date)
+            ).order_by(CharityProject.create_date)
         )
         opened_charity_projects = opened_charity_projects.scalars().all()
         return opened_charity_projects

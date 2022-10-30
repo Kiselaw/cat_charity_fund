@@ -24,12 +24,12 @@ async def investing(
 
     while len(opened_charity_projects) > 0 and len(not_invested_donations) > 0:
         possible_amount_to_donate = (
-            opened_charity_projects[0].full_amount
-            - opened_charity_projects[0].invested_amount
+            opened_charity_projects[0].full_amount -
+            opened_charity_projects[0].invested_amount
         )
         donation_amount = (
-            not_invested_donations[0].full_amount
-            - not_invested_donations[0].invested_amount
+            not_invested_donations[0].full_amount -
+            not_invested_donations[0].invested_amount
         )
         amount_to_donate = min(possible_amount_to_donate, donation_amount)
         opened_charity_projects[0].invested_amount += amount_to_donate
